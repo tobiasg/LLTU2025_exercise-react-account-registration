@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  --main-color: #ffe81f;
+}
+
+body {
+  font-family: "Mozilla Text", sans-serif;
+  background-color: #e5e4e2;
+  color: #1f2023;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1f2023;
+    color: #dadada;
+  }
+}
