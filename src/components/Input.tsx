@@ -1,20 +1,34 @@
-import { forwardRef, type ReactElement } from "react";
+import { forwardRef, type ChangeEvent, type ReactElement } from "react";
 
 interface InputProps {
   label: string;
-  type: "text" | "email" | "password";
-  ref: HTMLInputElement | null;
+  name: string;
+  type: "text" | "email" | "password" | "submit";
+  value: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, type }, ref): ReactElement => {
-    const fieldId = `${label.toLowerCase().replace(/\s+/g, "-")}`;
+  ({ label, name, value, onChange, type }, ref): ReactElement => {
+    const id = `${label.toLowerCase().replace(/\s+/g, "-")}`;
 
-    return (
-      <>
-        <label htmlFor={fieldId}>{label}</label>
-        <input id={fieldId} type={type} ref={ref} />
-      </>
-    );
+    if (type === "submit") {
+      return <input id={id} type={type} value={label} ref={ref} />;
+    } else {
+      return (
+        <>
+          <label htmlFor={id}>{label}</label>
+          <input
+            id={id}
+            type={type}
+            name={name}
+            value={value}
+            onChange={onChange}
+            required
+            ref={ref}
+          />
+        </>
+      );
+    }
   }
 );
