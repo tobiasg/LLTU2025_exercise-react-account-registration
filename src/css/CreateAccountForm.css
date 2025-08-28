@@ -1,0 +1,25 @@
+form {
+  padding-block: 2rem;
+}
+
+form input {
+  width: 100%;
+  font-size: 20px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.name-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.errors {
+  margin: 10px 0;
+}
+
+.error-message {
+  display: block;
+  color: #dc3545;
+}
